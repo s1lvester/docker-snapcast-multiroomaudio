@@ -1,18 +1,17 @@
 version: "3"
 
 services:
-    multiroomaudio:
+   multiroomaudio:
         environment:
             SPOTIFYUSER: # your spotify account
             SPOTIFYPASS: # your spotify passwd
+
+        image: s1lvester/docker-snapcast-multiroomaudio
      
         networks:
             mylan:
                 ipv4_address: # desired address for container e.g. 192.168.5.80
      
-        build:
-            context: .
-
 networks:
     mylan:
         external: true

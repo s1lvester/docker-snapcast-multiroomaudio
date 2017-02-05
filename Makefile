@@ -28,7 +28,7 @@ lan:
 build:
 	docker build --rm --pull --tag $(NAME) .
 
-run:
+run-build:
 	docker run -itd \
 		--name=$(NAME) \
 		--hostname=$(NAME) \
@@ -36,6 +36,15 @@ run:
 		--network=$(NETNAME) \
 		--tmpfs /tmp:size=512M \
 		$(NAME)
+
+run:
+	docker run -itd \
+		--name=$(NAME) \
+		--hostname=$(NAME) \
+		--restart=always \
+		--network=$(NETNAME) \
+		--tmpfs /tmp:size=512M \
+		s1lvester/docker-snapcast-multiroomaudio
 
 destroy:
 	make stop
