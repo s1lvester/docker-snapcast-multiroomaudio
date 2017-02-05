@@ -1,0 +1,21 @@
+version: "3"
+
+services:
+    multiroomaudio:
+        environment:
+            SPOTIFYUSER: # your spotify account
+            SPOTIFYPASS: # your spotify passwd
+     
+        networks:
+            mylan:
+                ipv4_address: # desired address for container e.g. 192.168.5.80
+     
+        build:
+            context: .
+            args:
+                SNAPCASTVERSION: 0.10.0
+                LIBRESPOTVERSION: 0.0.20161102
+
+networks:
+    mylan:
+        external: true
