@@ -1,5 +1,3 @@
-[![ImageLayers Layers](https://img.shields.io/imagelayers/layers/s1lvester/docker-snapcast-multiroomaudio/latest.svg)]()
-[![ImageLayers Image-Size](https://img.shields.io/imagelayers/image-size/s1lvester/docker-snapcast-multiroomaudio/latest.svg)]()
 [![Docker Automated build](https://img.shields.io/docker/automated/s1lvester/docker-snapcast-multiroomaudio.svg)]()
 
 # docker-snapcast-multiroomaudio
