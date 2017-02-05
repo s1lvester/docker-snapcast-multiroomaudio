@@ -12,9 +12,6 @@ services:
      
         build:
             context: .
-            args:
-                SNAPCASTVERSION: 0.10.0
-                LIBRESPOTVERSION: 0.0.20161102
 
 networks:
     mylan:
