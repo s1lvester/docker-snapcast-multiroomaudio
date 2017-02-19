@@ -48,8 +48,6 @@ VOLUME /var/run/dbus
 
 # config-files
 ADD ./supervisord.conf /etc/supervisord.conf
-ADD ./shairport.cfg /etc/shairport.cfg
-ADD ./asound.conf /etc/asound.conf
 ADD ./start.sh /start.sh
 RUN chmod a+x /start.sh
 

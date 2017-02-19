@@ -1,7 +1,6 @@
 #! /bin/sh
 
 # setup dbus
-rm -rf /var/run/dbus
 mkdir -p /var/run/dbus
 chown -R messagebus:messagebus /var/run/dbus
 dbus-uuidgen --ensure
