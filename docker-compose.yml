@@ -2,11 +2,8 @@ version: "3"
 
 services:
    multiroomaudio:
-        environment:
-            SPOTIFYUSER: # your spotify account
-            SPOTIFYPASS: # your spotify passwd
-
-        image: s1lvester/docker-snapcast-multiroomaudio
+       build: .
+       image: s1lvester/docker-snapcast-multiroomaudio
      
         networks:
             mylan:
@@ -15,3 +12,4 @@ services:
 networks:
     mylan:
         external: true
+

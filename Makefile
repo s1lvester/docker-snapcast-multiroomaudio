@@ -3,7 +3,7 @@ NAME="multiroomaudio"
 NETNAME="mylan"
 SUBNET="192.168.5.0/24"
 GATEWAY="192.168.5.1"
-DEVICE="eth0"
+DEVICE="wlp3s0"
 
 SPOTIFYUSER=""
 SPOTIFYPASS=""

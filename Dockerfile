@@ -2,23 +2,26 @@
 
 FROM blitznote/debootstrap-amd64:16.04
 
-MAINTAINER s1lvester <s1lvester@bockhacker.me>
+MAINTAINER s1lvester <hello@s1lvester.de>
 
-ENV LANG en_US.UTF-8
-ENV LANGUAGE en_US.UTF-8
-
-ARG SNAPCASTVERSION="0.10.0"
+ARG SNAPCASTVERSION="c633110"
 ARG LIBRESPOTVERSION="0.0.20161102"
 
 # get the stuffs
 RUN apt-get -qq update &&\
     apt-get -qq install git avahi-daemon avahi-utils dbus shairport-sync supervisor \
-        build-essential bzip2 portaudio19-dev libprotoc-dev libvorbisfile3 &&\
+        build-essential bzip2 portaudio19-dev libprotoc-dev libvorbisfile3 \
+        libasound2-dev libvorbisidec-dev libvorbis-dev libflac-dev alsa-utils \
+        libavahi-client-dev python-pip &&\
 
-# Snapcast, Shairport-sync,avahi and dbus
-    curl -L -o /root/out.deb 'https://github.com/badaix/snapcast/releases/download/v'$SNAPCASTVERSION'/snapserver_'$SNAPCASTVERSION'_amd64.deb' &&\
-    dpkg -i --force-all /root/out.deb &&\
-    apt-get -y -f install &&\
+# Snapcast, avahi and dbus
+    git clone https://github.com/badaix/snapcast /root/snapcast &&\
+    cd /root/snapcast &&\
+    git checkout $SNAPCASTVERSION &&\
+    git submodule update --init --recursive &&\
+    cd server &&\
+    make &&\
+    make install &&\
     mkdir -p /root/.config/snapcast/ &&\
     rm -rf /var/run/* &&\
     mkdir -p /var/run/dbus &&\
@@ -31,11 +34,14 @@ RUN apt-get -qq update &&\
     mv librespot.x64 /usr/local/bin/librespot &&\
     chmod a+x /usr/local/bin/librespot &&\
 
+# supervidord logging
+    pip install supervisor-stdout &&\
+
 # cleanup
     apt-get -qq autoremove &&\
     apt-get -qq clean &&\
-    rm /root/out.deb &&\
-    rm -rf /var/lib/apt/lists/*
+    rm -rf /var/lib/apt/lists/* &&\
+    rm -rf /root/snapcast
 
 # mounting dbus on host so avahi can work.
 VOLUME /var/run/dbus
