@@ -2,8 +2,6 @@ version: "3"
 
 services:
    multiroomaudio:
-        environment:
-
         image: s1lvester/docker-snapcast-multiroomaudio
      
         networks:
