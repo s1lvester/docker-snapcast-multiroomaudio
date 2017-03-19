@@ -14,7 +14,7 @@ RUN apt-get -qq update &&\
         supervisor bzip2 portaudio19-dev libvorbisfile3 curl libprotoc-dev cargo &&\
 
 # Snapcast, Shairport-sync,avahi and dbus
-    curl -L -o /root/out.deb 'https://github.com/badaix/snapcast/releases/download/v0.11.0-beta-1/snapserver_0.11.0.beta-1_amd64.deb' &&\
+    curl -L -o /root/out.deb 'https://github.com/badaix/snapcast/releases/download/v0.11.0/snapserver_0.11.0_amd64.deb' &&\
     dpkg -i --force-all /root/out.deb &&\
     apt-get -y -f install &&\
     mkdir -p /root/.config/snapcast/ &&\
