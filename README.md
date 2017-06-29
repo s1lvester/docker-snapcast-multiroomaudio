@@ -5,7 +5,7 @@
 Simple docker-container to run [snapcast](https://github.com/badaix/snapcast) (snapserver) with Spotify (via [librespot](https://github.com/plietar/librespot)) and AirPlay (via [shairport-sync](https://github.com/mikebrady/shairport-sync)) Streaming options. Uses Avahi for service announcements and uses macvlan to be addressable to native snapclients on your LAN. So this is the definition of "standing on the shoulders of giants"
 
 # PLEASE NOTICE
-If you're reading this on (https://hub.docker.com) or (https://store.docker.com): I'm using the docker-services here just as a glorified "build-service". This project lives on [github](https://github.com/s1lvester/docker-snapcast/multiroomaudio), so Issues should be brought up there.
+If you're reading this on (https://hub.docker.com) or (https://store.docker.com): I'm using the docker-services here just as a glorified "build-service". This project lives on [github](https://github.com/s1lvester/docker-snapcast-multiroomaudio), so Issues should be brought up there.
 
 # Usage:
 I recommend you use the docker-compose.yml. 
