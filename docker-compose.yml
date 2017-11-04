@@ -5,7 +5,7 @@ services:
      image: s1lvester/docker-snapcast-multiroomaudio
      environment:
        SPOTIFY_BITRATE: 160
-       ENV_SPOTIFY_NAME: Snapcast
+       SPOTIFY_NAME: Snapcast
      networks:
        mylan:
          ipv4_address: # desired address for container e.g. 192.168.5.80
